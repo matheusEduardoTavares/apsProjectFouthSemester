@@ -6,6 +6,7 @@
 package ui;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,18 +15,22 @@ import java.awt.Color;
 public class Menu extends javax.swing.JFrame {
     private Color purpleColor = new Color(54,33,89);
     private Color selectedButtonColor = new Color(85, 65, 118);
+    private ArrayList<Object> algorithmElements = new ArrayList<Object>();
+    private ArrayList<Object> fileElements = new ArrayList<Object>();
+    private ArrayList<Object> statisticsElements = new ArrayList<Object>();
 
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
+        getContentPane().setBackground(purpleColor);
         btnAlgoritmos.setOpaque(true);
         btnArquivos.setOpaque(true);
         btnEstatisticas.setOpaque(true);
         btnAlgoritmos.setBackground(selectedButtonColor);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +46,18 @@ public class Menu extends javax.swing.JFrame {
         btnAlgoritmos = new javax.swing.JLabel();
         btnEstatisticas = new javax.swing.JLabel();
         btnArquivos = new javax.swing.JLabel();
+        pnScreen = new javax.swing.JPanel();
+        pnHeader = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        pnBody = new javax.swing.JPanel();
+        lblPage = new javax.swing.JLabel();
+        pnAction = new javax.swing.JPanel();
+        pnAlgorithm = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        pnFile = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        pnStatistics = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Algoritmos de Ordenação");
@@ -116,7 +133,147 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(btnArquivos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEstatisticas)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnScreen.setBackground(new java.awt.Color(255, 254, 249));
+
+        pnHeader.setBackground(new java.awt.Color(255, 254, 249));
+
+        jLabel2.setFont(new java.awt.Font("Roboto Mono Light for Powerline", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Algoritmos de Ordenação");
+
+        javax.swing.GroupLayout pnHeaderLayout = new javax.swing.GroupLayout(pnHeader);
+        pnHeader.setLayout(pnHeaderLayout);
+        pnHeaderLayout.setHorizontalGroup(
+            pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnHeaderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnHeaderLayout.setVerticalGroup(
+            pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnHeaderLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnBody.setForeground(new java.awt.Color(122, 72, 221));
+
+        lblPage.setBackground(new java.awt.Color(169, 144, 225));
+        lblPage.setFont(new java.awt.Font("Roboto Mono Light for Powerline", 1, 24)); // NOI18N
+        lblPage.setForeground(new java.awt.Color(54, 33, 89));
+        lblPage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPage.setText("Execução dos Algoritmos");
+
+        javax.swing.GroupLayout pnBodyLayout = new javax.swing.GroupLayout(pnBody);
+        pnBody.setLayout(pnBodyLayout);
+        pnBodyLayout.setHorizontalGroup(
+            pnBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnBodyLayout.setVerticalGroup(
+            pnBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblPage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+        );
+
+        pnAction.setBackground(new java.awt.Color(250, 250, 250));
+        pnAction.setPreferredSize(new java.awt.Dimension(290, 290));
+        pnAction.setLayout(new java.awt.CardLayout());
+
+        pnAlgorithm.setBackground(new java.awt.Color(250, 250, 250));
+
+        jLabel3.setText("algoritmo");
+
+        javax.swing.GroupLayout pnAlgorithmLayout = new javax.swing.GroupLayout(pnAlgorithm);
+        pnAlgorithm.setLayout(pnAlgorithmLayout);
+        pnAlgorithmLayout.setHorizontalGroup(
+            pnAlgorithmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnAlgorithmLayout.createSequentialGroup()
+                .addGap(296, 296, 296)
+                .addComponent(jLabel3)
+                .addContainerGap(315, Short.MAX_VALUE))
+        );
+        pnAlgorithmLayout.setVerticalGroup(
+            pnAlgorithmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnAlgorithmLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(jLabel3)
+                .addContainerGap(167, Short.MAX_VALUE))
+        );
+
+        pnAction.add(pnAlgorithm, "card2");
+
+        pnFile.setBackground(new java.awt.Color(250, 250, 250));
+
+        jLabel4.setText("Arquivo");
+
+        javax.swing.GroupLayout pnFileLayout = new javax.swing.GroupLayout(pnFile);
+        pnFile.setLayout(pnFileLayout);
+        pnFileLayout.setHorizontalGroup(
+            pnFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnFileLayout.createSequentialGroup()
+                .addGap(307, 307, 307)
+                .addComponent(jLabel4)
+                .addContainerGap(319, Short.MAX_VALUE))
+        );
+        pnFileLayout.setVerticalGroup(
+            pnFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnFileLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jLabel4)
+                .addContainerGap(185, Short.MAX_VALUE))
+        );
+
+        pnAction.add(pnFile, "card3");
+
+        pnStatistics.setBackground(new java.awt.Color(250, 250, 250));
+
+        jLabel5.setText("Estatísticas");
+
+        javax.swing.GroupLayout pnStatisticsLayout = new javax.swing.GroupLayout(pnStatistics);
+        pnStatistics.setLayout(pnStatisticsLayout);
+        pnStatisticsLayout.setHorizontalGroup(
+            pnStatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnStatisticsLayout.createSequentialGroup()
+                .addGap(249, 249, 249)
+                .addComponent(jLabel5)
+                .addContainerGap(351, Short.MAX_VALUE))
+        );
+        pnStatisticsLayout.setVerticalGroup(
+            pnStatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnStatisticsLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(jLabel5)
+                .addContainerGap(176, Short.MAX_VALUE))
+        );
+
+        pnAction.add(pnStatistics, "card4");
+
+        javax.swing.GroupLayout pnScreenLayout = new javax.swing.GroupLayout(pnScreen);
+        pnScreen.setLayout(pnScreenLayout);
+        pnScreenLayout.setHorizontalGroup(
+            pnScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnScreenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnAction, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnScreenLayout.setVerticalGroup(
+            pnScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnScreenLayout.createSequentialGroup()
+                .addComponent(pnHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnAction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,11 +282,13 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 225, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -138,15 +297,23 @@ public class Menu extends javax.swing.JFrame {
     private void btnAlgoritmosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlgoritmosMouseClicked
         // TODO add your handling code here:
         btnAlgoritmos.setBackground(selectedButtonColor);
+        lblPage.setText("Execução dos Algoritmos");
         btnArquivos.setBackground(purpleColor);
         btnEstatisticas.setBackground(purpleColor);
+        pnAlgorithm.setVisible(true);
+        pnFile.setVisible(false);
+        pnStatistics.setVisible(false);
     }//GEN-LAST:event_btnAlgoritmosMouseClicked
 
     private void btnArquivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnArquivosMouseClicked
         // TODO add your handling code here:
         btnAlgoritmos.setBackground(purpleColor);
         btnArquivos.setBackground(selectedButtonColor);
+        lblPage.setText("Criação dos Arquivos");
         btnEstatisticas.setBackground(purpleColor);
+        pnAlgorithm.setVisible(false);
+        pnFile.setVisible(true);
+        pnStatistics.setVisible(false);
     }//GEN-LAST:event_btnArquivosMouseClicked
 
     private void btnEstatisticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstatisticasMouseClicked
@@ -154,6 +321,10 @@ public class Menu extends javax.swing.JFrame {
         btnAlgoritmos.setBackground(purpleColor);
         btnArquivos.setBackground(purpleColor);
         btnEstatisticas.setBackground(selectedButtonColor);
+        lblPage.setText("Exibição das Estatísticas");
+        pnAlgorithm.setVisible(false);
+        pnFile.setVisible(false);
+        pnStatistics.setVisible(true);
     }//GEN-LAST:event_btnEstatisticasMouseClicked
 
     /**
@@ -165,7 +336,19 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel btnArquivos;
     private javax.swing.JLabel btnEstatisticas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblPage;
+    private javax.swing.JPanel pnAction;
+    private javax.swing.JPanel pnAlgorithm;
+    private javax.swing.JPanel pnBody;
+    private javax.swing.JPanel pnFile;
+    private javax.swing.JPanel pnHeader;
     private javax.swing.JPanel pnMenu;
+    private javax.swing.JPanel pnScreen;
+    private javax.swing.JPanel pnStatistics;
     // End of variables declaration//GEN-END:variables
 }
