@@ -5,17 +5,25 @@
  */
 package ui;
 
+import java.awt.Color;
+
 /**
  *
  * @author mateus
  */
 public class Menu extends javax.swing.JFrame {
+    private Color purpleColor = new Color(54,33,89);
+    private Color selectedButtonColor = new Color(85, 65, 118);
 
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
+        btnAlgoritmos.setOpaque(true);
+        btnArquivos.setOpaque(true);
+        btnEstatisticas.setOpaque(true);
+        btnAlgoritmos.setBackground(selectedButtonColor);
     }
 
     /**
@@ -27,37 +35,137 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnMenu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnAlgoritmos = new javax.swing.JLabel();
+        btnEstatisticas = new javax.swing.JLabel();
+        btnArquivos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Algoritmos de Ordenação");
+        setAlwaysOnTop(true);
 
-        jLabel1.setText("Teste");
+        pnMenu.setBackground(new java.awt.Color(54, 33, 89));
+        pnMenu.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Roboto Mono Light for Powerline", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 207, 212));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("APS");
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnAlgoritmos.setBackground(new java.awt.Color(54, 33, 89));
+        btnAlgoritmos.setFont(new java.awt.Font("Roboto Mono Light for Powerline", 0, 18)); // NOI18N
+        btnAlgoritmos.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlgoritmos.setText("Algoritmos");
+        btnAlgoritmos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAlgoritmos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAlgoritmosMouseClicked(evt);
+            }
+        });
+
+        btnEstatisticas.setBackground(new java.awt.Color(54, 33, 89));
+        btnEstatisticas.setFont(new java.awt.Font("Roboto Mono Light for Powerline", 0, 18)); // NOI18N
+        btnEstatisticas.setForeground(new java.awt.Color(255, 255, 255));
+        btnEstatisticas.setText("Estatísticas");
+        btnEstatisticas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEstatisticas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEstatisticasMouseClicked(evt);
+            }
+        });
+
+        btnArquivos.setBackground(new java.awt.Color(54, 33, 89));
+        btnArquivos.setFont(new java.awt.Font("Roboto Mono Light for Powerline", 0, 18)); // NOI18N
+        btnArquivos.setForeground(new java.awt.Color(255, 255, 255));
+        btnArquivos.setText("Arquivos");
+        btnArquivos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnArquivos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnArquivosMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnMenuLayout = new javax.swing.GroupLayout(pnMenu);
+        pnMenu.setLayout(pnMenuLayout);
+        pnMenuLayout.setHorizontalGroup(
+            pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
+                    .addComponent(btnAlgoritmos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEstatisticas, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                    .addComponent(btnArquivos, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnMenuLayout.setVerticalGroup(
+            pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAlgoritmos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnArquivos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEstatisticas)
+                .addContainerGap(125, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel1)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addComponent(pnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 225, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addContainerGap(229, Short.MAX_VALUE))
+            .addComponent(pnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAlgoritmosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlgoritmosMouseClicked
+        // TODO add your handling code here:
+        btnAlgoritmos.setBackground(selectedButtonColor);
+        btnArquivos.setBackground(purpleColor);
+        btnEstatisticas.setBackground(purpleColor);
+    }//GEN-LAST:event_btnAlgoritmosMouseClicked
+
+    private void btnArquivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnArquivosMouseClicked
+        // TODO add your handling code here:
+        btnAlgoritmos.setBackground(purpleColor);
+        btnArquivos.setBackground(selectedButtonColor);
+        btnEstatisticas.setBackground(purpleColor);
+    }//GEN-LAST:event_btnArquivosMouseClicked
+
+    private void btnEstatisticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstatisticasMouseClicked
+        // TODO add your handling code here:
+        btnAlgoritmos.setBackground(purpleColor);
+        btnArquivos.setBackground(purpleColor);
+        btnEstatisticas.setBackground(selectedButtonColor);
+    }//GEN-LAST:event_btnEstatisticasMouseClicked
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnAlgoritmos;
+    private javax.swing.JLabel btnArquivos;
+    private javax.swing.JLabel btnEstatisticas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel pnMenu;
     // End of variables declaration//GEN-END:variables
 }
