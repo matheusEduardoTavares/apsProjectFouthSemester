@@ -36,8 +36,8 @@ public class FileIO extends JFrame {
         files.clear();
         for (Object fileName : Main.algorithms) {
             files.add(new File(fileName.toString() + ".txt"));
-            confirmCreatedFiles(files);
         }
+        confirmCreatedFiles();
     }
     
     static public void getFilesPath(String currentDirectory, String extension, boolean getName, ArrayList<Object> arm) {
@@ -62,11 +62,11 @@ public class FileIO extends JFrame {
             }
         }
         catch (Exception e) {
-            new Error("Não foi possível encontrar a pasta do projeto.", "Erro");
+            new Error("Não foi possível encontrar a pasta do projeto", "Erro");
         }
     }
     
-    private void confirmCreatedFiles(ArrayList<File> files) {
+    private void confirmCreatedFiles() {
         boolean generated = false;
         for (File file : files){
             try {
@@ -74,20 +74,20 @@ public class FileIO extends JFrame {
                   generated = true;
                 } 
                 else {
-                  new Error(("Aquivo " + file.getName() + " já existe!"), "Arquivo já existente");
+                  if (Main.algorithms.size() == files.size()) new Error(("Aquivo " + file.getName() + " já existe!"), "Arquivo já existente");
                 }
             } catch (IOException e) {
-                new Error("Não foi possível gerar os arquivos.", "Erro");
+                new Error("Não foi possível gerar os arquivos", "Erro");
             }
         }
         if (generated) {
-            JOptionPane.showMessageDialog(null, "Ao menos um arquivo foi gerado com sucesso !");
+            if (Main.algorithms.size() == files.size()) JOptionPane.showMessageDialog(null, "Ao menos um arquivo foi gerado com sucesso !");
         }
     }
     
     private void valueFiles() throws Exception {
         boolean existsFiles = existsFiles();     
-        if (!existsFiles) throw new Exception("Arquivos não encontrados. Por favor, crie-os primeiro."); 
+        if (!existsFiles) throw new Exception("Arquivos não encontrados. Por favor, crie-os primeiro"); 
         valuesForFiles = new int[3];
         isValue = true;
         cancelOperation = false;
@@ -127,12 +127,13 @@ public class FileIO extends JFrame {
     static public boolean containsOnlyNumbers() {
         boolean existsFiles = existsFiles();     
         String filename = "";
-        ArrayList<Integer> valuesFromFile = new ArrayList<Integer>();
+        ArrayList<Integer> valuesFromFile;
         String nameFileWithoutExtension = "";
         if (!existsFiles) return false; 
         else {      
             try{
                 for (File file : files) {
+                    valuesFromFile = new ArrayList<Integer>();
                     filename = file.getName();
                     int indexPoint = filename.indexOf(".");
                     nameFileWithoutExtension = filename.substring(0, indexPoint);
@@ -147,14 +148,14 @@ public class FileIO extends JFrame {
                         }
                         reader.close();
                     }
+                    Integer[] values = new Integer[valuesFromFile.size()];
+                    for (int i = 0; i < valuesFromFile.size(); i++) {
+                        values[i] = valuesFromFile.get(i);
+                    }
+                    ExecuteAlgorithms.indexForAlgorithms.put(nameFileWithoutExtension, counter);
+                    ExecuteAlgorithms.valuesForAlgorithms.add(values);
+                    counter++;
                 }
-                Integer[] values = new Integer[valuesFromFile.size()];
-                for (int i = 0; i < valuesFromFile.size(); i++) {
-                    values[i] = valuesFromFile.get(i);
-                }
-                ExecuteAlgorithms.indexForAlgorithms.put(nameFileWithoutExtension, counter);
-                ExecuteAlgorithms.valuesForAlgorithms.add(values);
-                counter++;
                 return true;
             }
             catch (NumberFormatException e) {
@@ -168,13 +169,14 @@ public class FileIO extends JFrame {
         }
     }
     
-    static public void writeFile(Integer[] data, int index) {
+    static public void writeFile(Integer[] data, int index, String nameAlgorithm) {
         try {
             FileWriter writer = new FileWriter(files.get(index).getName());
             String convertArrayToString = "";
             for (int value : data) {
                 convertArrayToString += value + "\n";
             }
+            // convertArrayToString += nameAlgorithm;
             writer.write(convertArrayToString);
             writer.close();
         }

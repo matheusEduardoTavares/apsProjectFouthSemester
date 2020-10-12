@@ -4,15 +4,15 @@ public class BubbleSort {
     private long millisecondsPassed;
     private String name;
 
-    public BubbleSort(Integer[] numeros){
+    public BubbleSort(Integer[] array){
         name = "Bubble Sort";
         long startMilliseconds = System.currentTimeMillis();
-        for (int i = 0; i < numeros.length - 1; i++){
-            for (int pos = 0; pos < numeros.length - 1; pos++) {
-                if (numeros[pos] > numeros[pos + 1]) {         
-                    int aux = numeros[pos];
-                    numeros[pos] = numeros[pos + 1];
-                    numeros[pos + 1] = aux;
+        for (int i = 0; i < array.length - 1; i++){
+            for (int pos = 0; pos < array.length - 1; pos++) {
+                if (array[pos] > array[pos + 1]) {         
+                    int aux = array[pos];
+                    array[pos] = array[pos + 1];
+                    array[pos + 1] = aux;
                 }   
             }
         }

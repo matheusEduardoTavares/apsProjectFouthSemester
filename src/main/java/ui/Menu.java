@@ -39,6 +39,7 @@ public class Menu extends javax.swing.JFrame {
         pnAction = new javax.swing.JPanel();
         pnAlgorithm = new javax.swing.JPanel();
         btnExecutar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         pnFile = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -180,16 +181,24 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(169, 144, 225));
+        jLabel3.setFont(new java.awt.Font("Roboto Mono Light for Powerline", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(54, 33, 89));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("<html><h2>Algoritmos Implementados</h2><ul><li style=\"margin-left: 20px;\">Quick Sort</li><li style=\"margin-left: 20px;\">Bubble Sort</li><li style=\"margin-left: 20px;\">Insertion Sort</li><li style=\"margin-left: 20px;\">Selection Sort</li></ul></html>");
+
         javax.swing.GroupLayout pnAlgorithmLayout = new javax.swing.GroupLayout(pnAlgorithm);
         pnAlgorithm.setLayout(pnAlgorithmLayout);
         pnAlgorithmLayout.setHorizontalGroup(
             pnAlgorithmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnExecutar, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+            .addComponent(jLabel3)
         );
         pnAlgorithmLayout.setVerticalGroup(
             pnAlgorithmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnAlgorithmLayout.createSequentialGroup()
-                .addContainerGap(182, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(btnExecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62))
         );
@@ -333,7 +342,7 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnAlgoritmos.setBackground(purpleColor);
         btnArquivos.setBackground(selectedButtonColor);
-        lblPage.setText("Criação dos Arquivos");
+        lblPage.setText("Manipulação dos Arquivos");
         btnEstatisticas.setBackground(purpleColor);
         pnAlgorithm.setVisible(false);
         pnFile.setVisible(true);
@@ -379,6 +388,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
