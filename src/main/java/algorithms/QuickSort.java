@@ -21,7 +21,7 @@ public class QuickSort {
         }
     }
     
-    private static int separar(Integer[] vetor, int esq, int dir) { // 3 parametros novamente, o vetor, e 2 tipos int com nome esq e dir, sucessivamente
+    private static int separar(Integer[] vetor, int esq, int dir) {
         int i = esq + 1; 
         int j = dir; 
         int pivo = vetor[esq]; 
