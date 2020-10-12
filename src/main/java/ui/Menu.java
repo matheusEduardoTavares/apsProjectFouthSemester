@@ -5,6 +5,7 @@
  */
 package ui;
 
+import helpers.ExecuteAlgorithms;
 import io.FileIO;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class Menu extends javax.swing.JFrame {
         lblPage = new javax.swing.JLabel();
         pnAction = new javax.swing.JPanel();
         pnAlgorithm = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        btnExecutar = new javax.swing.JButton();
         pnFile = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -189,23 +190,25 @@ public class Menu extends javax.swing.JFrame {
 
         pnAlgorithm.setBackground(new java.awt.Color(250, 250, 250));
 
-        jLabel3.setText("algoritmo");
+        btnExecutar.setText("Executar");
+        btnExecutar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExecutarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnAlgorithmLayout = new javax.swing.GroupLayout(pnAlgorithm);
         pnAlgorithm.setLayout(pnAlgorithmLayout);
         pnAlgorithmLayout.setHorizontalGroup(
             pnAlgorithmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnAlgorithmLayout.createSequentialGroup()
-                .addGap(296, 296, 296)
-                .addComponent(jLabel3)
-                .addContainerGap(315, Short.MAX_VALUE))
+            .addComponent(btnExecutar, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
         );
         pnAlgorithmLayout.setVerticalGroup(
             pnAlgorithmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnAlgorithmLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(jLabel3)
-                .addContainerGap(167, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnAlgorithmLayout.createSequentialGroup()
+                .addContainerGap(182, Short.MAX_VALUE)
+                .addComponent(btnExecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
 
         pnAction.add(pnAlgorithm, "card2");
@@ -375,6 +378,11 @@ public class Menu extends javax.swing.JFrame {
         new FileIO(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnExecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecutarActionPerformed
+        // TODO add your handling code here:
+        ExecuteAlgorithms execute = new ExecuteAlgorithms();
+    }//GEN-LAST:event_btnExecutarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -383,11 +391,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel btnAlgoritmos;
     private javax.swing.JLabel btnArquivos;
     private javax.swing.JLabel btnEstatisticas;
+    private javax.swing.JButton btnExecutar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;

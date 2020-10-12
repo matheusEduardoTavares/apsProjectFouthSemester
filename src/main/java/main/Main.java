@@ -13,6 +13,7 @@ public class Main {
             String nameFileWithoutExtension = algorithms.get(i).toString().substring(0, indexPoint);
             algorithms.set(i, nameFileWithoutExtension);
         }
+        FileIO.getFilesPath("", ".txt", false, null);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);

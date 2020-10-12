@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import main.Main;
+
 public class FileIO extends JFrame {
     public static ArrayList<File> files = new ArrayList<File>();
     public static int[] valuesForFiles = new int[3];
@@ -16,7 +18,6 @@ public class FileIO extends JFrame {
     public static boolean cancelOperation;
     
     public FileIO(boolean op){
-        getFilesPath(".", ".txt", false, null);
         if (op) createFiles();
         else {
             try {
@@ -30,10 +31,10 @@ public class FileIO extends JFrame {
     
     private void createFiles() { 
         files.clear();
-        files.add(new File("Algoritmo1.txt"));
-        files.add(new File("Algoritmo2.txt"));
-        files.add(new File("Algoritmo3.txt"));
-        confirmCreatedFiles(files);
+        for (Object fileName : Main.algorithms) {
+            files.add(new File(fileName.toString() + ".txt"));
+            confirmCreatedFiles(files);
+        }
     }
     
     static public void getFilesPath(String currentDirectory, String extension, boolean getName, ArrayList<Object> arm) {
@@ -45,14 +46,21 @@ public class FileIO extends JFrame {
             File[] listOfFiles = folder.listFiles();
             for (File file : listOfFiles) {
                 if (file.isFile()) {
-                    if (file.getName().toLowerCase().contains(extension)) {
-                        if (!getName) files.add(file);
+                    String filename = file.getName();
+                    if (filename.contains(extension)) {
+                        int indexPoint = filename.indexOf(".");
+                        String nameFileWithoutExtension = filename.substring(0, indexPoint);
+                        if (!getName) {
+                            if (Main.algorithms.contains(nameFileWithoutExtension)) files.add(file);
+                        }
                         else arm.add(file.getName());
                     }
                 }
             }
+            System.out.println("files " + files.toString());
         }
         catch (Exception e) {
+            System.out.println(e.toString());
             new Error("Não foi possível encontrar a pasta do projeto.", "Erro");
         }
     }
@@ -103,8 +111,8 @@ public class FileIO extends JFrame {
         }
     }
     
-    private boolean existsFiles() {
-        if (files.size() <= 2) return false;
+    static public boolean existsFiles() {
+        if (files.size() < Main.algorithms.size()) return false;
         boolean existsFiles = true;
         for (File file : files) {
             if (!file.exists() || file.isDirectory()) {
