@@ -4,7 +4,7 @@ public class BubbleSort {
     private long millisecondsPassed;
     private String name;
 
-    public BubbleSort(int[] numeros){
+    public BubbleSort(Integer[] numeros){
         name = "Bubble Sort";
         long startMilliseconds = System.currentTimeMillis();
         for (int i = 0; i < numeros.length - 1; i++){

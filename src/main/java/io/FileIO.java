@@ -2,12 +2,14 @@ package io;
 
 import customPanes.JOptionPaneMultiInput;
 import customPanes.Error;
+import helpers.ExecuteAlgorithms;
 import helpers.RandomNumbers;
 import java.io.File;
 import java.io.FileWriter;
 import javax.swing.JFrame;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 import main.Main;
 
@@ -16,6 +18,7 @@ public class FileIO extends JFrame {
     public static int[] valuesForFiles = new int[3];
     public static boolean isValue;
     public static boolean cancelOperation;
+    public static int counter;
     
     public FileIO(boolean op){
         if (op) createFiles();
@@ -57,10 +60,8 @@ public class FileIO extends JFrame {
                     }
                 }
             }
-            System.out.println("files " + files.toString());
         }
         catch (Exception e) {
-            System.out.println(e.toString());
             new Error("Não foi possível encontrar a pasta do projeto.", "Erro");
         }
     }
@@ -121,5 +122,77 @@ public class FileIO extends JFrame {
             }
         }
         return existsFiles;
+    }
+    
+    static public boolean containsOnlyNumbers() {
+        boolean existsFiles = existsFiles();     
+        String filename = "";
+        ArrayList<Integer> valuesFromFile = new ArrayList<Integer>();
+        String nameFileWithoutExtension = "";
+        if (!existsFiles) return false; 
+        else {      
+            try{
+                for (File file : files) {
+                    filename = file.getName();
+                    int indexPoint = filename.indexOf(".");
+                    nameFileWithoutExtension = filename.substring(0, indexPoint);
+                    File myObj = file;
+                    try (Scanner reader = new Scanner(myObj)) {
+                        while (reader.hasNextLine()) {
+                            String data = reader.nextLine();
+                            if (!data.equals("")) {
+                                int value = Integer.parseInt(data);
+                                valuesFromFile.add(value);
+                            }
+                        }
+                        reader.close();
+                    }
+                }
+                Integer[] values = new Integer[valuesFromFile.size()];
+                for (int i = 0; i < valuesFromFile.size(); i++) {
+                    values[i] = valuesFromFile.get(i);
+                }
+                ExecuteAlgorithms.indexForAlgorithms.put(nameFileWithoutExtension, counter);
+                ExecuteAlgorithms.valuesForAlgorithms.add(values);
+                counter++;
+                return true;
+            }
+            catch (NumberFormatException e) {
+                new Error(("O arquivo " + filename + " não contém apenas números"), "Erro");
+                return false;
+            }
+            catch (Exception e) {
+                new Error("Não foi possível ler os arquivos", "Erro");
+                return false;
+            }
+        }
+    }
+    
+    static public void writeFile(Integer[] data, int index) {
+        try {
+            FileWriter writer = new FileWriter(files.get(index).getName());
+            String convertArrayToString = "";
+            for (int value : data) {
+                convertArrayToString += value + "\n";
+            }
+            writer.write(convertArrayToString);
+            writer.close();
+        }
+        catch (Exception e) {
+            new Error("Não foi possível armazenar a ordenação no arquivo", "Erro");
+        }
+    }
+    
+    static public int indexFile(String name) {
+        String filename = "";
+        int count = 0;
+        for (File file : files) {
+            filename = file.getName();
+            int indexPoint = filename.indexOf(".");
+            String nameFileWithoutExtension = filename.substring(0, indexPoint);
+            if (nameFileWithoutExtension.equals(name)) return count;
+            count++;
+        }
+        return -1;
     }
 }
