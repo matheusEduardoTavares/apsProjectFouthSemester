@@ -3,6 +3,7 @@ package helpers;
 import algorithms.BubbleSort;
 import algorithms.InsertionSort;
 import algorithms.QuickSort;
+import algorithms.SelectionSort;
 import io.FileIO;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +70,23 @@ public class ExecuteAlgorithms {
                 }
                 else {
                     new customPanes.Error("O algoritmo insertionSort não foi encontrado", "Erro");
+                }
+                
+                //Selection Sort
+                nameAlgorithm = "SelectionSort";
+                SelectionSort selectionSort = new SelectionSort(valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm)));
+                for (int i : valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm))) {
+                    System.out.println(i);
+                }
+                System.out.println("selectionSort.getName() " + selectionSort.getName());
+                System.out.println("selectionSort.getMillisecondsPassed() " + selectionSort.getMillisecondsPassed());
+                
+                index = FileIO.indexFile(nameAlgorithm);
+                if (index >= 0) {
+                    FileIO.writeFile(valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm)), index, selectionSort.getName());
+                }
+                else {
+                    new customPanes.Error("O algoritmo selectionSort não foi encontrado", "Erro");
                 }
                 
                 JOptionPane.showMessageDialog(null, "Todos os arquivos foram ordenados e salvados com sucesso !");
