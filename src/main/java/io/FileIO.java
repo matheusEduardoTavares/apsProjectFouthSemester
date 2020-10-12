@@ -16,7 +16,7 @@ public class FileIO extends JFrame {
     public static boolean cancelOperation;
     
     public FileIO(boolean op){
-        getFilesPath();
+        getFilesPath(".", ".txt", false, null);
         if (op) createFiles();
         else {
             try {
@@ -36,17 +36,18 @@ public class FileIO extends JFrame {
         confirmCreatedFiles(files);
     }
     
-    private void getFilesPath() {
+    static public void getFilesPath(String currentDirectory, String extension, boolean getName, ArrayList<Object> arm) {
         files.clear();
         try{
-            File currentDirFile = new File(".");
+            File currentDirFile = new File(currentDirectory);
             String helper = currentDirFile.getAbsolutePath();
             File folder = new File(helper);
             File[] listOfFiles = folder.listFiles();
             for (File file : listOfFiles) {
                 if (file.isFile()) {
-                    if (file.getName().toLowerCase().contains(".txt")) {
-                        files.add(file);
+                    if (file.getName().toLowerCase().contains(extension)) {
+                        if (!getName) files.add(file);
+                        else arm.add(file.getName());
                     }
                 }
             }
