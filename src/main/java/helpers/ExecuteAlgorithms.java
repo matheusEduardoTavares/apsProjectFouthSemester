@@ -4,11 +4,11 @@ import algorithms.BubbleSort;
 import algorithms.InsertionSort;
 import algorithms.QuickSort;
 import algorithms.SelectionSort;
+import customPanes.Success;
 import io.FileIO;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JOptionPane;
 
 public class ExecuteAlgorithms {
     public static Map<String, Integer> indexForAlgorithms;
@@ -89,7 +89,7 @@ public class ExecuteAlgorithms {
                     new customPanes.Error("O algoritmo selectionSort não foi encontrado", "Erro");
                 }
                 
-                JOptionPane.showMessageDialog(null, "Todos os arquivos foram ordenados e salvados com sucesso !");
+                new Success("Todos os arquivos foram ordenados e salvados com sucesso !", "Mensagem");
             }
         }
         else {

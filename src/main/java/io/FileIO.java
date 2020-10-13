@@ -2,6 +2,7 @@ package io;
 
 import customPanes.JOptionPaneMultiInput;
 import customPanes.Error;
+import customPanes.Success;
 import helpers.ExecuteAlgorithms;
 import helpers.RandomNumbers;
 import java.io.File;
@@ -81,7 +82,9 @@ public class FileIO extends JFrame {
             }
         }
         if (generated) {
-            if (Main.algorithms.size() == files.size()) JOptionPane.showMessageDialog(null, "Ao menos um arquivo foi gerado com sucesso !");
+            if (Main.algorithms.size() == files.size()) {
+                new Success("Ao menos um arquivo foi gerado com sucesso !", "Mensagem");
+            }
         }
     }
     

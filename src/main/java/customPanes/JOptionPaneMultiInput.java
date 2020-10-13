@@ -24,8 +24,11 @@ public class JOptionPaneMultiInput extends JFrame {
         customPanel.add(new JLabel("Quantidade de números:"));
         customPanel.add(quantity);
         
-
-        int result = JOptionPane.showConfirmDialog(null, customPanel, 
+        JFrame teste = new JFrame();
+        teste.setVisible(true);
+        teste.setLocation(100, 100);
+        teste.setAlwaysOnTop(true);
+        int result = JOptionPane.showConfirmDialog(teste, customPanel, 
                  "Entre com os valores", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
            try {
@@ -35,6 +38,7 @@ public class JOptionPaneMultiInput extends JFrame {
                if (quant <= 0 ) throw new Exception("Digite apenas números inteiros, e o campo quantidade deve ser maior que 0"); 
                int values[] = {min, max, quant};
                FileIO.valuesForFiles = values;
+               teste.dispose();
            }
            catch (NumberFormatException e) {
                FileIO.isValue = false;
@@ -42,6 +46,7 @@ public class JOptionPaneMultiInput extends JFrame {
         }
         else {
             FileIO.cancelOperation = true;
+            teste.dispose();
         }
     }
 }
