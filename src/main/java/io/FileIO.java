@@ -94,7 +94,7 @@ public class FileIO extends JFrame {
         valuesForFiles = new int[3];
         isValue = true;
         cancelOperation = false;
-        new JOptionPaneMultiInput().setVisible(true);
+        new JOptionPaneMultiInput();
         if (cancelOperation) return;
         if (!isValue) throw new Exception("Digite apenas números inteiros"); 
         int[] allNumbers = RandomNumbers.getRandomNumbersInRange(valuesForFiles[0], valuesForFiles[1], valuesForFiles[2]);
