@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 import main.Main;
 
 public class FileIO extends JFrame {
@@ -100,7 +99,7 @@ public class FileIO extends JFrame {
         int[] allNumbers = RandomNumbers.getRandomNumbersInRange(valuesForFiles[0], valuesForFiles[1], valuesForFiles[2]);
         String values = "";
         for (int value : allNumbers) {
-            values += value + "\n";
+            values += value + " \n";
         }
         try{
             for (File file : files) {
@@ -145,6 +144,7 @@ public class FileIO extends JFrame {
                         while (reader.hasNextLine()) {
                             String data = reader.nextLine();
                             if (!data.equals("")) {
+                                data = data.replace(" ", "");
                                 int value = Integer.parseInt(data);
                                 valuesFromFile.add(value);
                             }
@@ -177,7 +177,7 @@ public class FileIO extends JFrame {
             FileWriter writer = new FileWriter(files.get(index).getName());
             String convertArrayToString = "";
             for (int value : data) {
-                convertArrayToString += value + "\n";
+                convertArrayToString += value + " \n";
             }
             // convertArrayToString += nameAlgorithm;
             writer.write(convertArrayToString);
