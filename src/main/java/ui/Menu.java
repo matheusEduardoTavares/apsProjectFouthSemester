@@ -174,7 +174,12 @@ public class Menu extends javax.swing.JFrame {
 
         pnAlgorithm.setBackground(new java.awt.Color(250, 250, 250));
 
+        btnExecutar.setBackground(new java.awt.Color(54, 33, 89));
+        btnExecutar.setForeground(new java.awt.Color(255, 255, 255));
         btnExecutar.setText("Executar");
+        btnExecutar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnExecutar.setFocusPainted(false);
+        btnExecutar.setVerifyInputWhenFocusTarget(false);
         btnExecutar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExecutarActionPerformed(evt);
@@ -209,14 +214,22 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
 
+        jButton1.setBackground(new java.awt.Color(54, 33, 89));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Criar os arquivos");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(54, 33, 89));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Alterar o valor dos Arquivos");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setFocusPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
