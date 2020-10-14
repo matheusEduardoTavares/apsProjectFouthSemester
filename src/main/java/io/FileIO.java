@@ -108,7 +108,7 @@ public class FileIO extends JFrame {
                 writer.write(values);
                 writer.close();
             }
-            JOptionPane.showMessageDialog(null, "Conteúdo dos arquivos alterado com sucesso !");
+            new Success("Conteúdo dos arquivos alterado com sucesso !", "Mensagem");
         }
         catch (Exception e) {
             new Error("Não foi possível preencher os arquivos", "Erro");
