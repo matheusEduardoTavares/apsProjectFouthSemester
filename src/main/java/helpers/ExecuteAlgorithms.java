@@ -13,10 +13,14 @@ import java.util.Map;
 public class ExecuteAlgorithms {
     public static Map<String, Integer> indexForAlgorithms;
     public static ArrayList<Integer[]> valuesForAlgorithms;
+    public static long[] runtimes = new long[4];
+    public static String[] names = new String[4];
+    
     
     public ExecuteAlgorithms() {
         indexForAlgorithms = new HashMap<String, Integer>();
         valuesForAlgorithms = new ArrayList<Integer[]>();
+        
         FileIO.counter = 0;
         if (FileIO.existsFiles()) {
             if (FileIO.containsOnlyNumbers()) {
@@ -24,11 +28,8 @@ public class ExecuteAlgorithms {
                 //Quick Sort
                 String nameAlgorithm = "QuickSort";
                 QuickSort quickSort = new QuickSort(valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm)));
-                for (int i : valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm))) {
-                    System.out.println(i);
-                }
-                System.out.println("quickSort.getName() " + quickSort.getName());
-                System.out.println("quickSort.getMillisecondsPassed() " + quickSort.getMillisecondsPassed());
+                runtimes[0] = quickSort.getMillisecondsPassed();
+                names[0] = quickSort.getName();
                 
                 int index = FileIO.indexFile(nameAlgorithm);
                 if (index >= 0) {
@@ -41,11 +42,8 @@ public class ExecuteAlgorithms {
                 //Bubble Sort
                 nameAlgorithm = "BubbleSort";
                 BubbleSort bubbleSort = new BubbleSort(valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm)));
-                for (int i : valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm))) {
-                    System.out.println(i);
-                }
-                System.out.println("bubbleSort.getName() " + bubbleSort.getName());
-                System.out.println("bubbleSort.getMillisecondsPassed() " + bubbleSort.getMillisecondsPassed());
+                runtimes[1] = bubbleSort.getMillisecondsPassed();
+                names[1] = bubbleSort.getName();
                 
                 index = FileIO.indexFile(nameAlgorithm);
                 if (index >= 0) {
@@ -58,11 +56,8 @@ public class ExecuteAlgorithms {
                 //Insertion Sort
                 nameAlgorithm = "InsertionSort";
                 InsertionSort insertionSort = new InsertionSort(valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm)));
-                for (int i : valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm))) {
-                    System.out.println(i);
-                }
-                System.out.println("insertionSort.getName() " + insertionSort.getName());
-                System.out.println("insertionSort.getMillisecondsPassed() " + insertionSort.getMillisecondsPassed());
+                runtimes[2] = insertionSort.getMillisecondsPassed();
+                names[2] = insertionSort.getName();
                 
                 index = FileIO.indexFile(nameAlgorithm);
                 if (index >= 0) {
@@ -75,21 +70,24 @@ public class ExecuteAlgorithms {
                 //Selection Sort
                 nameAlgorithm = "SelectionSort";
                 SelectionSort selectionSort = new SelectionSort(valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm)));
-                for (int i : valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm))) {
-                    System.out.println(i);
-                }
-                System.out.println("selectionSort.getName() " + selectionSort.getName());
-                System.out.println("selectionSort.getMillisecondsPassed() " + selectionSort.getMillisecondsPassed());
+                runtimes[3] = selectionSort.getMillisecondsPassed();
+                names[3] = selectionSort.getName();
                 
                 index = FileIO.indexFile(nameAlgorithm);
                 if (index >= 0) {
                     FileIO.writeFile(valuesForAlgorithms.get(indexForAlgorithms.get(nameAlgorithm)), index, selectionSort.getName());
                 }
+                
                 else {
                     new customPanes.Error("O algoritmo selectionSort não foi encontrado", "Erro");
                 }
                 
-                new Success("Todos os arquivos foram ordenados e salvados com sucesso !", "Mensagem");
+                String messageJavaTime = "";
+                for (int i = 0; i < names.length; i++) {
+                    messageJavaTime += "\n" + "O algoritmo " + names[i] + " levou " + runtimes[i] + " milissegundo(s) para ordenação !";
+                }
+  
+                new Success(("Todos os arquivos foram ordenados e salvados com sucesso !" + messageJavaTime), "Mensagem");
             }
         }
         else {

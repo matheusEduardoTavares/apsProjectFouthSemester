@@ -40,6 +40,20 @@ public class FileIO extends JFrame {
         confirmCreatedFiles();
     }
     
+    static public String getPath(String currentDirectory) {
+        try{
+            File currentDirFile = new File(currentDirectory);
+            String helper = currentDirFile.getCanonicalPath();
+            int whereIsSubstringApsAlgoritmosOrdenacao = helper.indexOf("/src");
+            String finalPath = helper.substring(0, whereIsSubstringApsAlgoritmosOrdenacao);
+            return finalPath;
+        }
+        catch (Exception e) {
+            new Error("Não foi possível encontrar o path", "Erro");
+        }
+        return null;
+    }
+    
     static public void getFilesPath(String currentDirectory, String extension, boolean getName, ArrayList<Object> arm) {
         files.clear();
         try{

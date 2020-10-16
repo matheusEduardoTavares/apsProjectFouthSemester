@@ -1,6 +1,7 @@
 package ui;
 
 import helpers.ExecuteAlgorithms;
+import helpers.GenerateGraphics;
 import io.FileIO;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class Menu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         pnStatistics = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        btnGraphics = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Algoritmos de Ordenação");
@@ -278,23 +279,30 @@ public class Menu extends javax.swing.JFrame {
 
         pnStatistics.setBackground(new java.awt.Color(250, 250, 250));
 
-        jLabel5.setText("Estatísticas");
+        btnGraphics.setBackground(new java.awt.Color(54, 33, 89));
+        btnGraphics.setForeground(new java.awt.Color(255, 255, 255));
+        btnGraphics.setText("Gerar Gráficos");
+        btnGraphics.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnGraphics.setFocusPainted(false);
+        btnGraphics.setVerifyInputWhenFocusTarget(false);
+        btnGraphics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGraphicsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnStatisticsLayout = new javax.swing.GroupLayout(pnStatistics);
         pnStatistics.setLayout(pnStatisticsLayout);
         pnStatisticsLayout.setHorizontalGroup(
             pnStatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnStatisticsLayout.createSequentialGroup()
-                .addGap(249, 249, 249)
-                .addComponent(jLabel5)
-                .addContainerGap(351, Short.MAX_VALUE))
+            .addComponent(btnGraphics, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
         );
         pnStatisticsLayout.setVerticalGroup(
             pnStatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnStatisticsLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jLabel5)
-                .addContainerGap(176, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnStatisticsLayout.createSequentialGroup()
+                .addContainerGap(182, Short.MAX_VALUE)
+                .addComponent(btnGraphics, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
 
         pnAction.add(pnStatistics, "card4");
@@ -388,6 +396,11 @@ public class Menu extends javax.swing.JFrame {
         ExecuteAlgorithms execute = new ExecuteAlgorithms();
     }//GEN-LAST:event_btnExecutarActionPerformed
 
+    private void btnGraphicsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraphicsActionPerformed
+        // TODO add your handling code here:
+        new GenerateGraphics();
+    }//GEN-LAST:event_btnGraphicsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -397,12 +410,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel btnArquivos;
     private javax.swing.JLabel btnEstatisticas;
     private javax.swing.JButton btnExecutar;
+    private javax.swing.JButton btnGraphics;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblPage;
