@@ -44,8 +44,8 @@ public class FileIO extends JFrame {
         try{
             File currentDirFile = new File(currentDirectory);
             String helper = currentDirFile.getCanonicalPath();
-            int whereIsSubstringApsAlgoritmosOrdenacao = helper.indexOf("/src");
-            String finalPath = helper.substring(0, whereIsSubstringApsAlgoritmosOrdenacao);
+            int whereIsSubstringApsAlgoritmosOrdenacao = helper.indexOf("src");
+            String finalPath = helper.substring(0, whereIsSubstringApsAlgoritmosOrdenacao - 1);
             return finalPath;
         }
         catch (Exception e) {

@@ -9,10 +9,10 @@ public class GenerateGraphics {
     }
     
     public void generateGraphics() {
-        String textTimes = "", textNames = "";
+        String textTimes = "", textNames = "", partition = "";
         String[] names = ExecuteAlgorithms.names;
         long[] runtimes = ExecuteAlgorithms.runtimes;
-        if (names[3] == null || runtimes[3] == 0) {
+        if (names[3] == null) {
             new Error("É necessário realizar pelo menos uma ordenação para poder gerar gráficos", "Erro");
         }
         else {
@@ -25,8 +25,10 @@ public class GenerateGraphics {
             String messageToGraphics = "python3 algoritmos.py " + textTimes + " " + textNames;
 
             String path = FileIO.getPath("src/main/java/algorithms");
-
-            new CallPythonFile(path, messageToGraphics);
+            
+            partition = path.substring(0, 1);
+            
+            new CallPythonFile(path, messageToGraphics, partition);
         }
     }
 }
