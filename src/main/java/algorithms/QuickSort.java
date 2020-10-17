@@ -5,7 +5,7 @@ public class QuickSort {
     private String name;
     
     public QuickSort(Integer[] array) {
-        name = "Quick Sort";
+        name = "QuickSort";
         long startMilliseconds = System.currentTimeMillis();
         quicksort(array, 0, array.length - 1);
         long finishMilliseconds = System.currentTimeMillis();

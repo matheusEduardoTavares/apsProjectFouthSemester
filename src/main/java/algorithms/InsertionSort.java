@@ -5,7 +5,7 @@ public class InsertionSort {
     private String name;
     
     public InsertionSort(Integer[] array) {
-        name = "Insertion Sort";
+        name = "InsertionSort";
         long startMilliseconds = System.currentTimeMillis();
         insertionSort(array);
         long finishMilliseconds = System.currentTimeMillis();

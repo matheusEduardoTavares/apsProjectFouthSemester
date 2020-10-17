@@ -5,7 +5,7 @@ public class BubbleSort {
     private String name;
 
     public BubbleSort(Integer[] array){
-        name = "Bubble Sort";
+        name = "BubbleSort";
         long startMilliseconds = System.currentTimeMillis();
         bubbleSort(array);
         long finishMilliseconds = System.currentTimeMillis();

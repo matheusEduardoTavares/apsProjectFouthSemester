@@ -22,7 +22,7 @@ public class CallPythonFile {
         else {
             terminal = "cmd.exe";
             directory = "/c";
-            finalCommand = partition + ": \"" + path + "\" && " + command;
+            finalCommand = partition + ": && cd \"" + path.substring(2) + "\" && " + command;
         }      
         ProcessBuilder builder = new ProcessBuilder(terminal, directory, finalCommand);
         builder.redirectErrorStream(true);

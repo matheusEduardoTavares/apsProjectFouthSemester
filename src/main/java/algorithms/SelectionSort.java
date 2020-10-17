@@ -5,7 +5,7 @@ public class SelectionSort {
     private String name;
     
     public SelectionSort(Integer[] array) {
-        name = "Selection Sort";
+        name = "SelectionSort";
         long startMilliseconds = System.currentTimeMillis();
         selectionSort(array);
         long finishMilliseconds = System.currentTimeMillis();
