@@ -3,6 +3,7 @@ package algorithms;
 public class InsertionSort {
     private long millisecondsPassed;
     private String name;
+    private int numberComparisons = 0;
     
     public InsertionSort(Integer[] array) {
         name = "InsertionSort";
@@ -20,6 +21,7 @@ public class InsertionSort {
             while (j >= 0 && array[j] > key) { 
                 array[j + 1] = array[j]; 
                 j = j - 1; 
+                this.numberComparisons++;
             } 
             array[j + 1] = key; 
         } 
@@ -40,6 +42,12 @@ public class InsertionSort {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
+
+    public int getNumberComparisons() {
+        return numberComparisons;
+    }
+
+    public void setNumberComparisons(int numberComparisons) {
+        this.numberComparisons = numberComparisons;
+    }
 }

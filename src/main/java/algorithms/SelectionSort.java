@@ -3,6 +3,7 @@ package algorithms;
 public class SelectionSort {
     private long millisecondsPassed;
     private String name;
+    private int numberComparisons = 0;
     
     public SelectionSort(Integer[] array) {
         name = "SelectionSort";
@@ -12,11 +13,11 @@ public class SelectionSort {
         millisecondsPassed = finishMilliseconds - startMilliseconds;
     }
     
-    private static void selectionSort(Integer[] array) {
+    private void selectionSort(Integer[] array) {
         for (int i = 0; i < array.length; i++) {
             int menor = i;
             for (int j = i + 1; j < array.length; j++) {
-
+                this.numberComparisons++;
                 if (array[j] < array[menor]) 
                     menor = j;   
             }
@@ -44,5 +45,13 @@ public class SelectionSort {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getNumberComparisons() {
+        return numberComparisons;
+    }
+
+    public void setNumberComparisons(int numberComparisons) {
+        this.numberComparisons = numberComparisons;
     }
 }

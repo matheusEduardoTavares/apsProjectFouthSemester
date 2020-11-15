@@ -1,8 +1,9 @@
 package algorithms;
 
-public class QuickSort {
+public final class QuickSort {
     private long millisecondsPassed;
     private String name;
+    private int numberComparisons = 0;
     
     public QuickSort(Integer[] array) {
         name = "QuickSort";
@@ -12,20 +13,20 @@ public class QuickSort {
         millisecondsPassed = finishMilliseconds - startMilliseconds;
     }
     
-    public static void quicksort(Integer[] vetor, int esq, int dir) {
+    public void quicksort(Integer[] vetor, int esq, int dir) {
         if (esq < dir) {
             int j = separar(vetor, esq, dir); 
             quicksort(vetor, esq, j - 1); 
             quicksort(vetor, j + 1, dir);
-
         }
     }
     
-    private static int separar(Integer[] vetor, int esq, int dir) {
+    private int separar(Integer[] vetor, int esq, int dir) {
         int i = esq + 1; 
         int j = dir; 
         int pivo = vetor[esq]; 
         while (i <= j) { 
+            this.numberComparisons++;
             if (vetor[i] <= pivo) {
                 i++; 
             } else if (vetor[j] > pivo) {
@@ -40,7 +41,7 @@ public class QuickSort {
         return j;
     }
     
-    private static void trocar(Integer[] vetor, int i, int j) {
+    private void trocar(Integer[] vetor, int i, int j) {
         int aux = vetor[i];
         vetor[i] = vetor[j];
         vetor[j] = aux;
@@ -60,5 +61,13 @@ public class QuickSort {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getNumberComparisons() {
+        return numberComparisons;
+    }
+
+    public void setNumberComparisons(int numberComparisons) {
+        this.numberComparisons = numberComparisons;
     }
 }

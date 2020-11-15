@@ -38,6 +38,7 @@ public class ExecuteAlgorithms {
                 else {
                     new customPanes.Error("O algoritmo QuickSort não foi encontrado", "Erro");
                 }
+                System.out.println("Número de comparações do " + quickSort.getName() + " = " + quickSort.getNumberComparisons());
                 
                 //Bubble Sort
                 nameAlgorithm = "BubbleSort";
@@ -52,6 +53,7 @@ public class ExecuteAlgorithms {
                 else {
                     new customPanes.Error("O algoritmo BubbleSort não foi encontrado", "Erro");
                 }
+                System.out.println("Número de comparações do " + bubbleSort.getName() + " = " + bubbleSort.getNumberComparisons());
                 
                 //Insertion Sort
                 nameAlgorithm = "InsertionSort";
@@ -66,6 +68,7 @@ public class ExecuteAlgorithms {
                 else {
                     new customPanes.Error("O algoritmo insertionSort não foi encontrado", "Erro");
                 }
+                System.out.println("Número de comparações do " + insertionSort.getName() + " = " + insertionSort.getNumberComparisons());
                 
                 //Selection Sort
                 nameAlgorithm = "SelectionSort";
@@ -86,6 +89,7 @@ public class ExecuteAlgorithms {
                 for (int i = 0; i < names.length; i++) {
                     messageJavaTime += "\n" + "O algoritmo " + names[i] + " levou " + runtimes[i] + " milissegundo(s) para ordenação !";
                 }
+                System.out.println("Número de comparações do " + selectionSort.getName() + " = " + selectionSort.getNumberComparisons());
   
                 new Success(("Todos os arquivos foram ordenados e salvados com sucesso !" + messageJavaTime), "Mensagem");
             }

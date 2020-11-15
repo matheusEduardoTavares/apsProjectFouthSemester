@@ -3,6 +3,7 @@ package algorithms;
 public class BubbleSort {
     private long millisecondsPassed;
     private String name;
+    private int numberComparisons = 0;
 
     public BubbleSort(Integer[] array){
         name = "BubbleSort";
@@ -15,6 +16,7 @@ public class BubbleSort {
     private void bubbleSort(Integer[] array) {
         for (int i = 0; i < array.length - 1; i++){
             for (int pos = 0; pos < array.length - 1; pos++) {
+                this.numberComparisons++;
                 if (array[pos] > array[pos + 1]) {         
                     int aux = array[pos];
                     array[pos] = array[pos + 1];
@@ -38,5 +40,13 @@ public class BubbleSort {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getNumberComparisons() {
+        return numberComparisons;
+    }
+
+    public void setNumberComparisons(int numberComparisons) {
+        this.numberComparisons = numberComparisons;
     }
 }
